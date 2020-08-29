@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PruebaApplication<prueba>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "ec.com.udla.prueba.PruebaApplication",
+            "projectName": "prueba",
+            "args": ""
+        }
+    ]
+}
