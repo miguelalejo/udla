@@ -2,7 +2,10 @@ package ec.com.udla.prueba;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
-
+import static org.hamcrest.MatcherAssert.assertThat; 
+import static org.hamcrest.Matchers.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -27,6 +30,17 @@ public class RepositorioServicePersonaTest {
 		persona.setNombre("Miguel");
 		persona.setEdad(33);
 		repositorioPersona.save(persona);
+		Persona personaMiguel = new Persona();
+		personaMiguel.setId(30L);
+		personaMiguel.setNombre("Miguel");
+		personaMiguel.setEdad(18);
+		repositorioPersona.save(personaMiguel);
+		Persona personaMichel = new Persona();
+		personaMichel.setId(30L);
+		personaMichel.setNombre("Michel");
+		personaMichel.setEdad(20);
+		repositorioPersona.save(personaMichel);
+		
 	}
 
 	@Test
@@ -41,7 +55,7 @@ public class RepositorioServicePersonaTest {
 		persona.setNombre("Mia");
 		persona.setEdad(25);
 		Persona personaActual = repositorioPersona.save(persona);
-		assertThat(persona).isEqualTo(personaActual);
+		assertThat(persona.getId()).isEqualTo(personaActual.getId());
 	}
 	
 	@Test
@@ -51,7 +65,7 @@ public class RepositorioServicePersonaTest {
 		persona.setNombre("Miguel");
 		persona.setEdad(25);
 		Persona personaActual = repositorioPersona.save(persona);
-		assertThat(persona).isEqualTo(personaActual);
+		assertThat(persona.getNombre()).isEqualTo(personaActual.getNombre());
 	}
 
 	@Test
@@ -59,5 +73,19 @@ public class RepositorioServicePersonaTest {
 		Optional<Persona> persona = repositorioPersona.findById(10L);
 		assertTrue(persona.isPresent());
 	}
+	
+	@Test
+	public void deberiaBuscarPersonaPorNombre() {
+		List<Persona> personas = repositorioPersona.buscarPorNombre("Miguel");
+		List<Integer> listaEdades = new ArrayList<Integer>();
+		listaEdades.add(33);
+		listaEdades.add(18);
+		for(Persona persona: personas) {
+			assertThat(persona.getNombre()).isEqualTo("Miguel");			
+			assertThat(persona.getEdad(),in(listaEdades));
+		}
+		
+	}
+
 
 }

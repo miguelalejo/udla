@@ -9,23 +9,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import ec.com.udla.prueba.entidades.Persona;
-import ec.com.udla.prueba.repositorio.RepositorioPersona;
+import ec.com.udla.prueba.entidades.Alumno;
+import ec.com.udla.prueba.repositorio.RepositorioAlumno;
 
 @RestController
-@RequestMapping("/persona")
-public class ControladorPersona {
+@RequestMapping("/alumno")
+public class ControladorAlumno {
 	@Autowired
-	private RepositorioPersona repositorioPersona;
+	private RepositorioAlumno repositorioAlumno;
 	@RequestMapping("/")
 	public @ResponseBody String saludo() {
 		return "Hola";
 	}
 
 	@PostMapping("/agregar")
-	public @ResponseBody ResponseEntity<Long> crearPersona(@RequestBody Persona persona) {	
-		repositorioPersona.save(persona);
-		return new ResponseEntity<Long>(persona.getId(),HttpStatus.CREATED);
+	public @ResponseBody ResponseEntity<Alumno> crearPersona(@RequestBody Alumno persona) {	
+		Alumno alumnoRespuesta =repositorioAlumno.save(persona);
+		return new ResponseEntity<Alumno>(alumnoRespuesta,HttpStatus.CREATED);
 	}
 	
 

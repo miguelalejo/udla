@@ -6,11 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import ec.com.udla.prueba.entidades.Persona;
+import ec.com.udla.prueba.entidades.Alumno;
+
 
 @Repository
-public interface RepositorioPersona extends JpaRepository<Persona,Long> {
-	
-	@Query("SELECT per FROM Persona per WHERE per.nombre = ?1 ")	
-	public List<Persona> buscarPorNombre(String nombre);
+public interface RepositorioAlumno extends JpaRepository<Alumno, String>{
+	@Query("SELECT alu FROM Alumno alu WHERE factultad = ?1")
+	public List<Alumno> buscarPorFactultad(String factuldad);
 }

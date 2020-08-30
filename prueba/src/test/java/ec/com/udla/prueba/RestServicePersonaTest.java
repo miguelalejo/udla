@@ -39,9 +39,10 @@ public class RestServicePersonaTest {
 	@Test
 	public void deberiaGuardarPersona() {
 		Persona persona = new Persona();
+		persona.setId(20L);
 		persona.setNombre("Miguel");
 		persona.setEdad(33);
 		ResponseEntity<Long> idPersona = restTemplate.postForEntity(String.format("http://localhost:%s/persona/agregar", port), persona, Long.class);
-		assertThat(idPersona).isNotNull();		
+		assertThat(idPersona.getBody()).isEqualTo(20L);		
 	}
 }
