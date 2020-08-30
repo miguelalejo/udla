@@ -1,5 +1,7 @@
 package ec.com.udla.prueba.rest.controlador;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,11 @@ public class ControladorAlumno {
 	public @ResponseBody ResponseEntity<Alumno> crearPersona(@RequestBody Alumno persona) {	
 		Alumno alumnoRespuesta =repositorioAlumno.save(persona);
 		return new ResponseEntity<Alumno>(alumnoRespuesta,HttpStatus.CREATED);
+	}
+	
+	@RequestMapping("/lista")
+	public @ResponseBody ResponseEntity<List<Alumno>> listarAlumnos() {		
+		return new ResponseEntity<List<Alumno>>(repositorioAlumno.findAll(),HttpStatus.CREATED);
 	}
 	
 

@@ -21,7 +21,7 @@ public class Alumno {
 	@Column(name = "CURSO")
 	private String curso;
 	@Column(name = "FACULTAD")
-	private String factultad;
+	private String facultad;
 	@Column(name = "ESTADO")
 	private boolean estado;
 
@@ -47,14 +47,14 @@ public class Alumno {
 
 	public void setCurso(String curso) {
 		this.curso = curso;
+	}	
+
+	public String getFacultad() {
+		return facultad;
 	}
 
-	public String getFactultad() {
-		return factultad;
-	}
-
-	public void setFactultad(String factultad) {
-		this.factultad = factultad;
+	public void setFacultad(String facultad) {
+		this.facultad = facultad;
 	}
 
 	public boolean isEstado() {

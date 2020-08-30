@@ -11,6 +11,6 @@ import ec.com.udla.prueba.entidades.Alumno;
 
 @Repository
 public interface RepositorioAlumno extends JpaRepository<Alumno, String>{
-	@Query("SELECT alu FROM Alumno alu WHERE factultad = ?1")
+	@Query("SELECT alu FROM Alumno alu WHERE facultad = ?1")
 	public List<Alumno> buscarPorFactultad(String factuldad);
 }

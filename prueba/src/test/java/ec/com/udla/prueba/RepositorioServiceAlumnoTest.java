@@ -27,17 +27,17 @@ public class RepositorioServiceAlumnoTest {
 		Alumno alumno = new Alumno();
 		alumno.setNombre("Miguel");
 		alumno.setCurso("3roA");
-		alumno.setFactultad("INFORMÁTICA");
+		alumno.setFacultad("INFORMÁTICA");
 		repositorioAlumno.save(alumno);
 		Alumno alumnoMiguel = new Alumno();
 		alumnoMiguel.setNombre("Miguel");
 		alumnoMiguel.setCurso("4roA");
-		alumnoMiguel.setFactultad("FÍSICA");
+		alumnoMiguel.setFacultad("FÍSICA");
 		repositorioAlumno.save(alumnoMiguel);
 		Alumno alumnoMichel = new Alumno();
 		alumnoMichel.setNombre("Michel");
 		alumnoMichel.setCurso("8voC");
-		alumnoMichel.setFactultad("ADMINISTRACIÓN");
+		alumnoMichel.setFacultad("ADMINISTRACIÓN");
 		repositorioAlumno.save(alumnoMichel);
 	}
 
