@@ -1,0 +1,10 @@
+https://start.spring.io/
+
+mvnw.cmd spring-boot:run
+mvnw.cmd spring-boot:run -Dspring-boot.run.arguments="--activar"
+mvn -pl clean install -Dmaven.test.skip=true -Dcobertura.skip=true
+mvn package -Dmaven.test.skip=true -Dcobertura.skip=true
+
+
+mvnw.cmd clean spring-boot:run -Dspring-boot.run.profiles=qa
+mvnw.cmd clean spring-boot:run -Dspring-boot.run.profiles=prod
